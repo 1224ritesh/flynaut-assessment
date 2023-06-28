@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./includes/head') %>
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.0/socket.io.min.js"></script>
+    <script>
+      const email = "<%= user.email %>";
+    </script>
+  </head>
+  <body>
+    <header>
+      <button class="btn">
+        <a href="/logout">Logout</a>
+      </button>
+    </header>
+    <section>
+      <div id="front">
+        <div>
+          <label for="roomcode">Enter a room code to join</label>
+          <input type="text" name="roomcode" id="roomcode" />
+          <button id="joinbtn">JOIN</button>
+        </div>
+      </div>
+      <div id="back">
+        <div id="tile">
+          <div id="tiletop"></div>
+
+          <div id="tilecenter"></div>
+          <div id="tilebot">
+            <input type="text" name="message" id="message" />
+            <button id="sendbtn">SEND</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="/js/dashboard.js"></script>
+  </body>
+</html>

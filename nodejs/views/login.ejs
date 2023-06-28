@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <%- include('./includes/head') %>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+
+    <section>
+        <div id="container">
+            <div id="left">
+                <form action="/" method="POST" id="form">
+
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" class="textbox" placeholder="eg: demo@gmail.com">
+                    <% if(error=='emailerr'){ %>
+                        <p class="pmsg">Invalid email</p>
+                        <% } else{ %>
+                        <p class="pmsg"></p> 
+                        <% } %>
+                        
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="textbox" placeholder="eg: Password">
+                    <% if(error=='passerr'){ %>
+                        <p class="pmsg">Invalid password</p>
+                        <% }else if(error=='Missing credentials'){ %>
+                        <p class="pmsg">One or more field is empty</p>
+                       <% }else{ %>
+                        <p class="pmsg"></p>
+                      <% } %>
+
+                    <input type="hidden" name="redirect" value="<%= redirect %>">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+                    <button id="submit"><%- include('./includes/svg/unlockLogo') %>Login</button>
+
+                    <a href="/signup?redirect=<%= redirect %>">New user ? signup here</a>
+
+                </form>
+            </div>
+           
+        </div>
+
+    </section>
+    
+</body>
+</html>

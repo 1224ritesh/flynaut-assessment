@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./includes/head') %>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <section>
+        <div id="container">
+            <div id="left">
+                <form action="/signup" method="POST" id="form">
+               
+                    <label for="email">Email</label>
+                    <% if( message != undefined ){ %>
+                    <input type="text" name="email" id="email" class="textbox" value="<%= message %>"
+                        placeholder="eg: demo@gmail.com">
+                    <% }else{ %>
+                    <input type="text" name="email" id="email" class="textbox" placeholder="eg: demo@gmail.com">
+                    <% } %>
+
+                    
+                    <% if(error.includes("emailerr")){ %>
+                    <p class="pmsg">invalid email</p>
+                    <% }else if(error.includes("userexist")){ %>
+                    <p class="pmsg">email already registered</p>
+                    <% }else{ %>
+                    <p class="pmsg"></p>
+                    <% } %>
+                      
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="textbox"
+                        placeholder="eg: Password">
+                    <% if(error.includes("passerr")){ %>
+                    <p class="pmsg">password length must range between 4 to 20</p>
+                    <% }else{ %>
+                    <p class="pmsg"></p>
+                    <% } %>
+
+                    <label for="cpassword">Confirm Password</label>
+                    <input type="password" name="cpassword" id="cpassword" class="textbox"
+                        placeholder="eg: Confirm Password">
+                    <% if(error.includes("passmatcherr")){ %>
+                    <p class="pmsg">password did not match</p>
+                    <% }else{ %>
+                    <p class="pmsg"></p>
+                    <% } %>
+
+                    <input type="hidden" name="redirect" value="<%= redirect %>">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    
+                    <button id="submit"><%- include('./includes/svg/unlockLogo') %>Signup</button>
+                    <a href="/?redirect=<%= redirect %>">Already registered ? login here</a>
+                    
+                </form>
+            </div>
+        </div>
+
+    </section>
+</body>
+</html>
