@@ -1,2 +1,5 @@
 #Assessment
-## The repository `nodejs` contains a Test-Demo NodeJS application as mentioned in the Assessment
+## The repository three dir `nodejs`, `reacjs` and `question`.
+### Contains a solution of `questions` as mentioned in the Assessment. 
+### Contains a Test-Demo of `nodejs` application as mentioned in the Assessment.
+### Contains a Test-Demo of `reactjs` application as mentioned in the Assessment.
